@@ -5,6 +5,8 @@ import os
 from flask import Flask, jsonify, make_response
 app = Flask(__name__)
 
+
+#確認用
 @app.route('/')
 def index():
     return 'Hello World!'
@@ -19,6 +21,7 @@ def ToKanji(Number):
     if Bool==True:
         return Res
     
+    #エラー時の処理
     else:
         error = make_response('error', 204)
         error.mimetype = app.config['JSONIFY_MIMETYPE']
@@ -38,6 +41,8 @@ def ToNumber(Kanji):
     if Bool==True:
         return Res
     
+
+    #エラー時の処理
     else:
         error = make_response('', 204)
         error.mimetype = app.config['JSONIFY_MIMETYPE']
